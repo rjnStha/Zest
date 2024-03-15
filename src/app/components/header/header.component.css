@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ul { list-style: none; }
+.header {
+    font-family: "Noto Serif Display", sans-serif;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999;
+    transition: all 0.5s ease;
+}
+.header-scrolled {
+    background: linear-gradient(270deg, rgb(0,60,79), rgb(25, 24, 56,0.6)) !important; 
+}
+.header__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 4rem;
+    max-width: 80rem;
+    padding: 0 2rem;
+    margin: 0 auto;
+}
+.logo img {
+    height: 3rem;
+    display: block;
+}
+.nav { transition: all 0.6s ease-in-out; }
+.nav__list {
+    display: flex;
+    column-gap: 3rem;
+}
+.nav__link {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.25rem;
+    transition: all 0.3s;
+    position: relative;
+}
+.nav__link:hover{
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+.nav__link:focus,
+.active {
+    color: rgba(255, 255, 255, 1);
+}
+.nav__link::after {
+    content: '';
+    height: 0.1rem;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    bottom: -0.5rem;
+    transition: all 0.2s;
+    opacity: 0;
+    pointer-events: none;
+}
+.nav__link:hover::after,
+.active::after {
+    opacity: 1;
+}
+.hamburger {
+    display: none;
+}
+.hamburger__bar {
+    height: 0.12rem;
+    width: 1.5rem;
+    background-color: white;
+    margin: 0.3rem;
+    opacity: 0.7;
+    transition: all 0.3s ease-in-out;
+}
+.hamburger--open .hamburger__bar:nth-child(1) {
+    transform: translateY(0.45rem) rotate(45deg);
+}
+.hamburger--open .hamburger__bar:nth-child(2) {
+    opacity: 0
+}
+.hamburger--open .hamburger__bar:nth-child(3) {
+    transform: translateY(-0.45rem) rotate(-45deg);
+}
+/*Media Rule*/
+@media only screen and (max-width: 650px) {
+    .nav {
+        position: fixed;
+        top: 4rem;
+        left: 0;
+        width: 100%;
+        padding: 0 0 0.9rem 0;
+        transform: translateY(-200%);
+    }
+    .nav--open {
+        transform: translatey(0%) !important;
+        box-shadow: 0 9px 10px rgba(0,0,0,0.5);
+        background: linear-gradient(270deg, rgb(0,60,79), rgb(25, 24, 56,0.6));
+    }
+    .nav--scrolled {
+        background: linear-gradient(270deg, rgb(0,60,79), rgb(25, 24, 56,0.6));
+    }
+    .logo {padding: 0.4em 0;}
+    .nav__list {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 1rem;
+    }
+    .nav__link {font-size: 1rem;}
+    .hamburger {display: block;}
+}

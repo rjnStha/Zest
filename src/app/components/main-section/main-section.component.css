@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .section{
+      height: 100vh;
+  }
+  .section:nth-child(2){ background-color: rgba(5, 3, 59, 0.5);}
+  .section:nth-child(3){ background-color: grey;}
+  .section:nth-child(4){ background-color: rgb(7, 17, 21);}
+  /*Media Rule*/
+  @media only screen and (max-width: 650px) {
+      .main--nav--open{ filter: brightness(0.3);}
+      .section--header{
+          font-size: 4rem !important;
+      }
+  }
+  /* .home-container {
+      position: relative;
+      width: 100% !important;
+      z-index: -1;
+  } */
+  .section {
+      overflow: hidden;
+  }
+  .section--header {
+      color: White;
+      font-family: "Noto Serif Display", serif;
+      font-weight: 500; /*100 to 900*/
+      font-style: normal;
+      position: absolute;
+      top: 70%;
+      left: 40%;
+      transform: translate(-50%, -50%);
+      opacity: 0.8;
+      color: white;
+      font-size: 6rem;
+  }
